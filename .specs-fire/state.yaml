@@ -10,8 +10,52 @@ workspace:
   autonomy_bias: balanced
 
 intents:
-  - []
+  - id: create-main-py
+    title: "Create main.py CLI Entry Point"
+    status: in_progress
+    work_items:
+      - id: setup-cli-structure
+        title: "Setup CLI structure"
+        status: completed
+        complexity: low
+        mode: autopilot
+      - id: add-main-function
+        title: "Add main function"
+        status: completed
+        complexity: low
+        mode: autopilot
+      - id: add-version-flag
+        title: "Add version flag"
+        status: completed
+        complexity: low
+        mode: autopilot
+      - id: add-help-docs
+        title: "Add help docs"
+        status: completed
+        complexity: low
+        mode: autopilot
 
 runs:
   active: []
-  completed: []
+  completed:
+    - id: run-fireschedule-2026-001
+      scope: batch
+      work_items:
+        - id: setup-cli-structure
+          intent: create-main-py
+          mode: autopilot
+          status: completed
+        - id: add-main-function
+          intent: create-main-py
+          mode: autopilot
+          status: completed
+        - id: add-version-flag
+          intent: create-main-py
+          mode: autopilot
+          status: completed
+        - id: add-help-docs
+          intent: create-main-py
+          mode: autopilot
+          status: completed
+      started: "2026-03-14T12:00:00Z"
+      completed: "2026-03-14T12:05:00Z"
