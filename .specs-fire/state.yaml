@@ -60,26 +60,26 @@ intents:
         mode: autopilot
   - id: create-markdown-storage
     title: "Create markdown storage layer"
-    status: pending
+    status: completed
     work_items:
       - id: create-storage-module
         title: "Create storage module"
-        status: pending
+        status: completed
         complexity: medium
         mode: confirm
       - id: add-markdown-parser
         title: "Add markdown parser"
-        status: pending
+        status: completed
         complexity: medium
         mode: confirm
       - id: add-crud-operations
         title: "Add CRUD operations"
-        status: pending
+        status: completed
         complexity: high
         mode: confirm
       - id: add-date-organization
         title: "Add date organization"
-        status: pending
+        status: completed
         complexity: low
         mode: autopilot
 
@@ -134,3 +134,12 @@ runs:
           status: completed
       started: "2026-03-14T13:00:00Z"
       completed: "2026-03-14T13:10:00Z"
+    - id: run-fireschedule-2026-005
+      scope: single
+      work_items:
+        - id: create-storage-module
+          intent: create-markdown-storage
+          mode: confirm
+          status: completed
+      started: "2026-03-14T13:15:00Z"
+      completed: "2026-03-14T13:30:00Z"
