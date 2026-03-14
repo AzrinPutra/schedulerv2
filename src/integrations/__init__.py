@@ -1,6 +1,13 @@
 """Notion integration package."""
 
-from .client import NotionClient
-from .sync import NotionSync
+from .notion.client import NotionClient
+from .notion.sync import NotionSync
+from .google.client import GoogleCalendarClient
+from .google.sync import GoogleCalendarSync
 
-__all__ = ["NotionClient", "NotionSync"]
+__all__ = [
+    "NotionClient", 
+    "NotionSync", 
+    "GoogleCalendarClient", 
+    "GoogleCalendarSync"
+]

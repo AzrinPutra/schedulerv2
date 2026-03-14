@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar - FireSchedule</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: #f5f5f5; color: #333; }
+        header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 1.5rem; }
+        nav { background: white; padding: 0.75rem 1.5rem; border-bottom: 1px solid #eee; }
+        nav a { margin-right: 1.5rem; text-decoration: none; color: #667eea; font-weight: 500; }
+        main { padding: 2rem; max-width: 1200px; margin: 0 auto; }
+        .calendar { background: white; border-radius: 8px; padding: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+        .month-header { text-align: center; font-size: 1.5rem; margin-bottom: 1rem; font-weight: bold; }
+        .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
+        .day-header { text-align: center; font-weight: bold; padding: 0.5rem; background: #f0f0f0; }
+        .day { min-height: 100px; padding: 0.5rem; background: #fafafa; border: 1px solid #eee; }
+        .day.today { background: #e8f0fe; border-color: #667eea; }
+        .day-number { font-weight: bold; margin-bottom: 0.5rem; }
+        .day.today .day-number { color: #667eea; }
+        .day-item { font-size: 0.8rem; padding: 2px 4px; margin-bottom: 2px; background: #e3f2fd; border-radius: 2px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    </style>
+</head>
+<body>
+    <header><h1>FireSchedule - Calendar</h1></header>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/tasks">Tasks</a>
+        <a href="/events">Events</a>
+        <a href="/calendar">Calendar</a>
+        <a href="/add">Add New</a>
+    </nav>
+    <main>
+        <div class="calendar">
+            <div class="month-header">{{ month_name }}</div>
+            <div class="calendar-grid">
+                <div class="day-header">Mon</div>
+                <div class="day-header">Tue</div>
+                <div class="day-header">Wed</div>
+                <div class="day-header">Thu</div>
+                <div class="day-header">Fri</div>
+                <div class="day-header">Sat</div>
+                <div class="day-header">Sun</div>
+                
+                {% for i in range(start_padding) %}
+                <div class="day" style="background: #f5f5f5;"></div>
+                {% endfor %}
+                
+                {% for day in month_days %}
+                <div class="day{% if day.is_today %} today{% endif %}">
+                    <div class="day-number">{{ day.day }}</div>
+                    {% for task in day.tasks[:2] %}
+                    <div class="day-item">T: {{ task.title[:15] }}</div>
+                    {% endfor %}
+                    {% for event in day.events[:2] %}
+                    <div class="day-item" style="background: #e0f7fa;">E: {{ event.title[:15] }}</div>
+                    {% endfor %}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </main>
+</body>
+</html>
