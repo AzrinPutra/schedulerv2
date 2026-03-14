@@ -1,0 +1,17 @@
+project:
+  name: "scheduler"
+  fire_version: "0.1.8"
+  description: "Personal assistant/custom scheduler with TUI for managing weekly/daily tasks"
+  created: "2026-03-14T10:49:00Z"
+
+workspace:
+  type: greenfield
+  structure: monolith
+  autonomy_bias: balanced
+
+intents:
+  - []
+
+runs:
+  active: []
+  completed: []
