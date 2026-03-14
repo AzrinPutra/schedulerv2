@@ -82,6 +82,58 @@ intents:
         status: completed
         complexity: low
         mode: autopilot
+  - id: create-tui-components
+    title: "Create TUI components with Rich"
+    status: completed
+    work_items:
+      - id: create-tui-base
+        title: "Create TUI base components"
+        status: completed
+        complexity: medium
+        mode: confirm
+      - id: add-task-list-display
+        title: "Add task list display"
+        status: completed
+        complexity: low
+        mode: autopilot
+      - id: add-event-display
+        title: "Add event display"
+        status: completed
+        complexity: low
+        mode: autopilot
+  - id: create-reminder-system
+    title: "Create reminder system"
+    status: completed
+    work_items:
+      - id: create-reminder-model
+        title: "Create reminder model and config"
+        status: completed
+        complexity: medium
+        mode: confirm
+      - id: create-reminder-service
+        title: "Create reminder service"
+        status: completed
+        complexity: high
+        mode: confirm
+  - id: create-git-integration
+    title: "Create Git integration automation"
+    status: completed
+    work_items:
+      - id: create-git-automation
+        title: "Create Git automation"
+        status: completed
+        complexity: medium
+        mode: confirm
+      - id: create-github-integration
+        title: "Create GitHub integration"
+        status: completed
+        complexity: medium
+        mode: confirm
+      - id: create-markdown-export
+        title: "Create markdown export"
+        status": completed
+        complexity: low
+        mode: autopilot
 
 runs:
   active: []

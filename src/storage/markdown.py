@@ -113,6 +113,36 @@ class MarkdownStorage(StorageBase):
                                         items.append(frontmatter)
         return items
 
+    def list_all_tasks(self) -> list[Task]:
+        """List all tasks."""
+        items = []
+        base_path = self._get_base_path('task')
+        if base_path.exists():
+            for year_dir in base_path.iterdir():
+                if year_dir.is_dir():
+                    for month_dir in year_dir.iterdir():
+                        if month_dir.is_dir():
+                            for file in month_dir.glob('*.md'):
+                                frontmatter, _ = self._read_from_file(file)
+                                if frontmatter:
+                                    items.append(Task.from_dict(frontmatter))
+        return items
+
+    def list_all_events(self) -> list[Event]:
+        """List all events."""
+        items = []
+        base_path = self._get_base_path('event')
+        if base_path.exists():
+            for year_dir in base_path.iterdir():
+                if year_dir.is_dir():
+                    for month_dir in year_dir.iterdir():
+                        if month_dir.is_dir():
+                            for file in month_dir.glob('*.md'):
+                                frontmatter, _ = self._read_from_file(file)
+                                if frontmatter:
+                                    items.append(Event.from_dict(frontmatter))
+        return items
+
     @staticmethod
     def generate_id(item: Union[Task, Event, ScheduleItem]) -> str:
         return f'{item.__class__.__name__.lower()}_{datetime.now().isoformat()}'
