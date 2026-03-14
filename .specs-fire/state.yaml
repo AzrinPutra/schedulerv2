@@ -12,7 +12,7 @@ workspace:
 intents:
   - id: create-main-py
     title: "Create main.py CLI Entry Point"
-    status: in_progress
+    status: completed
     work_items:
       - id: setup-cli-structure
         title: "Setup CLI structure"
@@ -32,6 +32,30 @@ intents:
       - id: add-help-docs
         title: "Add help docs"
         status: completed
+        complexity: low
+        mode: autopilot
+  - id: create-schedule-data-models
+    title: "Create schedule data models"
+    status: in_progress
+    work_items:
+      - id: create-basic-models
+        title: "Create basic models"
+        status: completed
+        complexity: medium
+        mode: confirm
+      - id: add-validation
+        title: "Add validation"
+        status: pending
+        complexity: medium
+        mode: confirm
+      - id: add-serialization
+        title: "Add serialization"
+        status: pending
+        complexity: medium
+        mode: confirm
+      - id: create-enums
+        title: "Create enums"
+        status: pending
         complexity: low
         mode: autopilot
 
@@ -59,3 +83,12 @@ runs:
           status: completed
       started: "2026-03-14T12:00:00Z"
       completed: "2026-03-14T12:05:00Z"
+    - id: run-fireschedule-2026-002
+      scope: single
+      work_items:
+        - id: create-basic-models
+          intent: create-schedule-data-models
+          mode: confirm
+          status: completed
+      started: "2026-03-14T12:40:00Z"
+      completed: "2026-03-14T12:45:00Z"
